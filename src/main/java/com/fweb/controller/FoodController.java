@@ -33,7 +33,7 @@ public class FoodController {
 		model.addAttribute("pageMaker", pageMaker);
 	}
 
-	@RequestMapping(value = "/selectFood", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/selectFood", method = RequestMethod.GET)
 	public ModelAndView selectDetail(@RequestParam("bcode") String food_barcode) throws Exception {
 
 		FoodVO vo = service.selectDetail(food_barcode);
@@ -42,5 +42,5 @@ public class FoodController {
 		mav.addObject("FoodVO", vo);
 		return mav;
 
-	}
+	}*/
 }

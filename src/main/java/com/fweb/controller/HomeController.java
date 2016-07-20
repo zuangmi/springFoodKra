@@ -1,29 +1,23 @@
 package com.fweb.controller;
 
 
-import java.io.InputStream;
-import java.net.URL;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.inject.Inject;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.fweb.dto.apiDTO;
+import com.fweb.domain.FoodVO;
+import com.fweb.service.FoodService;
 
 
 /**
@@ -32,6 +26,8 @@ import com.fweb.dto.apiDTO;
 @Controller
 @RequestMapping("/")
 public class HomeController  {
+	@Inject
+	private FoodService service;
 	
 	RestTemplate restTemplateService= new RestTemplate();
 	/**
@@ -77,6 +73,16 @@ public class HomeController  {
 		return "";
 	}
 
+	@RequestMapping(value = "/food/selectFood", method = RequestMethod.GET)
+	public ModelAndView selectDetail(@RequestParam("bcode") String food_barcode) throws Exception {
+
+		FoodVO vo = service.selectDetail(food_barcode);
+
+		ModelAndView mav = new ModelAndView("/food/selectDetail");
+		mav.addObject("FoodVO", vo);
+		return mav;
+
+	}
 }
 
 
