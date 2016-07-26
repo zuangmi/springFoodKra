@@ -13,6 +13,61 @@ public class FoodVO {
 	private Integer food_chol;
 	private Integer food_energy;
 
+	private String food_calbos;
+	private String food_proteins;
+	private String food_fats;
+	private String food_nas;
+	private String food_chols;
+	private String food_energys;
+	
+	public String getFood_calbos() {
+		return food_calbos;
+	}
+
+	public void setFood_calbos(String food_calbos) {
+		this.food_calbos = food_calbos;
+	}
+
+	public String getFood_proteins() {
+		return food_proteins;
+	}
+
+	public void setFood_proteins(String food_proteins) {
+		this.food_proteins = food_proteins;
+	}
+
+	public String getFood_fats() {
+		return food_fats;
+	}
+
+	public void setFood_fats(String food_fats) {
+		this.food_fats = food_fats;
+	}
+
+	public String getFood_nas() {
+		return food_nas;
+	}
+
+	public void setFood_nas(String food_nas) {
+		this.food_nas = food_nas;
+	}
+
+	public String getFood_chols() {
+		return food_chols;
+	}
+
+	public void setFood_chols(String food_chols) {
+		this.food_chols = food_chols;
+	}
+
+	public String getFood_energys() {
+		return food_energys;
+	}
+
+	public void setFood_energys(String food_energys) {
+		this.food_energys = food_energys;
+	}
+	
 	public String getFood_barcode() {
 		return food_barcode;
 	}

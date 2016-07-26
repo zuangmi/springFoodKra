@@ -46,27 +46,27 @@
 							<thead>
 								<tr>
 									<th scope="col">에너지</th>
-									<td>&nbsp;&nbsp;&nbsp;${FoodVO.food_energy}kcal</td>
+									<td>&nbsp;&nbsp;&nbsp;${FoodVO.food_energys}</td>
 								</tr>
 								<tr>
 									<th scope="col">탄수화물</th>
-									<td>&nbsp;&nbsp;&nbsp;${FoodVO.food_calbo}g</td>
+									<td>&nbsp;&nbsp;&nbsp;${FoodVO.food_calbos}</td>
 								</tr>
 								<tr>
 									<th scope="col">단백질</th>
-									<td>&nbsp;&nbsp;&nbsp;${FoodVO.food_protein}g</td>
+									<td>&nbsp;&nbsp;&nbsp;${FoodVO.food_proteins}</td>
 								</tr>
 								<tr>
 									<th scope="col">지방</th>
-									<td>&nbsp;&nbsp;&nbsp;${FoodVO.food_fat}g</td>
+									<td>&nbsp;&nbsp;&nbsp;${FoodVO.food_fats}</td>
 								</tr>
 								<tr>
 									<th scope="col">나트륨</th>
-									<td>&nbsp;&nbsp;&nbsp;${FoodVO.food_na}mg</td>
+									<td>&nbsp;&nbsp;&nbsp;${FoodVO.food_nas}</td>
 								</tr>
 								<tr>
 									<th scope="col">콜레스테롤</th>
-									<td>&nbsp;&nbsp;&nbsp;${FoodVO.food_chol}mg</td>
+									<td>&nbsp;&nbsp;&nbsp;${FoodVO.food_chols}</td>
 								</tr>
 							</thead>
 						</table>
