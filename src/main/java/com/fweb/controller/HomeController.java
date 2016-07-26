@@ -50,39 +50,6 @@ public class HomeController  {
 	}
 	
 	
-	@RequestMapping(value="/test", method=RequestMethod.GET)
-	public String test() throws Exception{
-		
-		test1();
-		
-		return "index";
-	}
-	
-	public String test1() throws Exception{
-		String age="26";
-		String sex="m";
-	
-		String uri = "http://api.dbstore.or.kr:8880/foodinfo/get_id.do?api_key=Mjg2LTE0NjkwMTcwODY0NzMtYWZiOTc0MzItODA5MC00ODA1LWI5NzQtMzI4MDkwZjgwNTJk&area=서울&sex="+sex+"&age="+age;
-
-		HttpHeaders headers = new HttpHeaders();
-		headers.add("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-		headers.add("x-waple-authorization", "Mjg2LTE0NjkwMTcwODY0NzMtYWZiOTc0MzItODA5MC00ODA1LWI5NzQtMzI4MDkwZjgwNTJk");
-			
-		HttpEntity<String> entity = new HttpEntity<String>("parameters",headers);
-	
-		ResponseEntity<String> result =  restTemplate.exchange(uri,HttpMethod.GET,entity, String.class);
-		System.out.println("restlt: "+result);
-		System.out.println("please : "+result.getBody());
-		jsonobject = (JSONObject) jsonparser.parse(result.getBody());
-		
-		String ans =  jsonobject.get("uid").toString();
-		
-		System.out.println("uid : "+ans);
-		uid=ans;
-		
-		return "";
-	}
-
 	@RequestMapping(value = "/food/selectFood", method = RequestMethod.GET)
 	public ModelAndView selectDetail(@RequestParam("bcode") String food_barcode) throws Exception {
 		System.out.println("foodbarcode : "+food_barcode);
@@ -125,7 +92,6 @@ public class HomeController  {
 		for(int i=0;i<detailarray.size();i++){
 			ob=(JSONObject)detailarray.get(i);
 			detaillist.add(ob.toString());
-			System.out.println("detaillist"+i+" : "+ob);
 		}
 
 		ob=(JSONObject)jsonparser.parse(detaillist.get(0)); //열량
