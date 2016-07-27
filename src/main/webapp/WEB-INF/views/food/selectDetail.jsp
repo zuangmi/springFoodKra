@@ -72,12 +72,48 @@
 						</table>
 					</div>
 				</div> 
-    </div>
+    
     <div id="detailInfo" class="tab-pane fade">
-    	<h2>상세정보</h2> 
+    	<br>
+    	<div class="container">
+						<table>
+							<thead>
+								<tr>
+									<th scope="col">용량</th>
+									<td>&nbsp;&nbsp;&nbsp;${FoodVO.food_volume}</td>
+								</tr>
+								<tr>
+									<th scope="col">판매사</th>
+									<td>&nbsp;&nbsp;&nbsp;${FoodVO.food_sell_com}</td>
+								</tr>
+								<tr>
+									<th scope="col">식품유형</th>
+									<td>&nbsp;&nbsp;&nbsp;${FoodVO.food_type}</td>
+								</tr>
+								<tr>
+									<th scope="col">일회제공량</th>
+									<td>&nbsp;&nbsp;&nbsp;${FoodVO.food_ing_first}</td>
+								</tr>
+								<tr>
+									<th scope="col">당류</th>
+									<td>&nbsp;&nbsp;&nbsp;${FoodVO.food_sugars}</td>
+								</tr>
+								<tr>
+									<th scope="col">포화지방</th>
+									<td>&nbsp;&nbsp;&nbsp;${FoodVO.food_saturated_fat}</td>
+								</tr>
+								<tr>
+									<th scope="col">트랜스지방</th>
+									<td>&nbsp;&nbsp;&nbsp;${FoodVO.food_trans_fat}</td>
+								</tr>
+							</thead>
+						</table>
+					</div>
+					
     </div>
     <div id="review" class="tab-pane fade">
       <h2>리뷰</h2>
+    </div>
     </div>
   </div>
 </div>

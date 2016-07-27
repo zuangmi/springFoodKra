@@ -52,9 +52,11 @@ public class HomeController  {
 	
 	@RequestMapping(value = "/food/selectFood", method = RequestMethod.GET)
 	public ModelAndView selectDetail(@RequestParam("bcode") String food_barcode) throws Exception {
-		System.out.println("foodbarcode : "+food_barcode);
-	
+		
+		String code="F3A04";
+		String seq="22";
 		String search = "365 유기농아침 오렌지";
+		
 		
 		String searchuri ="http://api.dbstore.or.kr:8880/foodinfo/search.do?uid=KICC6ZH2&w="+search;
 		HttpHeaders headers = new HttpHeaders();
@@ -77,11 +79,14 @@ public class HomeController  {
 		
 		ob=(JSONObject)jsonparser.parse(list.get(0));
 		System.out.println(ob);
+	
 		String food_name=ob.get("food_name").toString();
-		String code=ob.get("code").toString();
-		String seq=ob.get("seq_code").toString();
 		String food_image=ob.get("thumb_img").toString();
-		System.out.println("foodname : "+food_name+" food_image :"+food_image);
+		String food_volume=ob.get("volume").toString();
+		String food_sell_com = ob.get("sell_com").toString();
+		String food_type = ob.get("food_type").toString();
+		String food_ing_first = ob.get("ing_first").toString();
+		
 		
 		String detailSearchuri ="http://api.dbstore.or.kr:8880/foodinfo/food_detail.do?uid=KICC6ZH2&c="+code+"&s="+seq;
 		ResponseEntity<String> detailSearchresult =  restTemplate.exchange(detailSearchuri,HttpMethod.GET,entity, String.class);
@@ -101,6 +106,9 @@ public class HomeController  {
 		ob=(JSONObject)jsonparser.parse(detaillist.get(1)); //탄수화물
 		String food_calbos = ob.get("vol_str").toString();
 		
+		ob=(JSONObject)jsonparser.parse(detaillist.get(2)); //당
+		String food_sugars = ob.get("vol_str").toString();
+		
 		ob=(JSONObject)jsonparser.parse(detaillist.get(3)); //단백질
 		 String food_proteins = ob.get("vol_str").toString();
 		 
@@ -113,7 +121,13 @@ public class HomeController  {
 		 ob=(JSONObject)jsonparser.parse(detaillist.get(6)); //나트륨
 		 String food_nas = ob.get("vol_str").toString();
 		 
-		 System.out.println("열량:"+food_energys+" 탄수화물 : "+food_calbos+" 단백질 : "+food_proteins+" 지방 : "+food_fats+" 콜레스테롤 : "+food_chols+" 나트륨 : "+food_nas);
+		 ob=(JSONObject)jsonparser.parse(detaillist.get(7)); //포화지방
+		 String food_saturated_fat= ob.get("vol_str").toString();
+		 
+		 ob=(JSONObject)jsonparser.parse(detaillist.get(9)); //트랜스지방
+		 String food_trans_fat = ob.get("vol_str").toString();
+		 
+		 
 		 FoodVO vo = new FoodVO();
 		
 		 vo.setFood_calbos(food_calbos);
@@ -124,14 +138,19 @@ public class HomeController  {
 		 vo.setFood_fats(food_fats);
 		 vo.setFood_image(food_image);
 		 vo.setFood_name(food_name);
+
+		 vo.setFood_ing_first(food_ing_first);
+		 vo.setFood_saturated_fat(food_saturated_fat);
+		 vo.setFood_sell_com(food_sell_com);
+		 vo.setFood_sugars(food_sugars);
+		 vo.setFood_trans_fat(food_trans_fat);
+		 vo.setFood_type(food_type);
+		 vo.setFood_volume(food_volume);
 		 
 		 
-		//FoodVO vo = service.selectDetail(food_barcode);
-		
 		ModelAndView mav = new ModelAndView("/food/selectDetail");
 		mav.addObject("FoodVO", vo);
 		return mav;
-
 	}
 }
 

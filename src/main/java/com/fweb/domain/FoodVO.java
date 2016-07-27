@@ -19,7 +19,72 @@ public class FoodVO {
 	private String food_nas;
 	private String food_chols;
 	private String food_energys;
+	private String food_volume;
+	private String food_sell_com;
+	private String food_type;
+	private String food_ing_first;
+	private String food_sugars;
+	private String food_saturated_fat;
+	private String food_trans_fat;
 	
+	
+	
+	public String getFood_volume() {
+		return food_volume;
+	}
+
+	public void setFood_volume(String food_volume) {
+		this.food_volume = food_volume;
+	}
+
+	public String getFood_sell_com() {
+		return food_sell_com;
+	}
+
+	public void setFood_sell_com(String food_sell_com) {
+		this.food_sell_com = food_sell_com;
+	}
+
+	public String getFood_type() {
+		return food_type;
+	}
+
+	public void setFood_type(String food_type) {
+		this.food_type = food_type;
+	}
+
+	public String getFood_ing_first() {
+		return food_ing_first;
+	}
+
+	public void setFood_ing_first(String food_ing_first) {
+		this.food_ing_first = food_ing_first;
+	}
+
+	public String getFood_sugars() {
+		return food_sugars;
+	}
+
+	public void setFood_sugars(String food_sugars) {
+		this.food_sugars = food_sugars;
+	}
+
+	public String getFood_saturated_fat() {
+		return food_saturated_fat;
+	}
+
+	public void setFood_saturated_fat(String food_saturated_fat) {
+		this.food_saturated_fat = food_saturated_fat;
+	}
+
+	public String getFood_trans_fat() {
+		return food_trans_fat;
+	}
+
+	public void setFood_trans_fat(String food_trans_fat) {
+		this.food_trans_fat = food_trans_fat;
+	}
+
 	public String getFood_calbos() {
 		return food_calbos;
 	}
